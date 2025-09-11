@@ -21,6 +21,9 @@ app.use(
     credentials: true,
   })
 );
+
+app.options("*", cors()); // allow preflight across all routes
+
 app.use(express.json());
 
 app.use("/api/products", ProductRouter);
