@@ -12,7 +12,10 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://nike-lac-five.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://cartez-ecommerce-frontend.vercel.app",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
