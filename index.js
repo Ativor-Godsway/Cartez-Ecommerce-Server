@@ -10,17 +10,32 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const allowedOrigins = [
+  "http://localhost:5173", // local dev
+  "https://cartez-ecommerce-frontend.vercel.app", // production domain
+];
+
+// allow preview deployments dynamically (matches *.vercel.app)
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://cartez-ecommerce-frontend-jmkq7c15x-ativors-projects.vercel.app",
-    ],
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true); // allow server-to-server requests
+
+      if (
+        allowedOrigins.includes(origin) ||
+        /\.vercel\.app$/.test(origin) // regex: allow any *.vercel.app subdomain
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS: " + origin));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );
 
+// handle preflight
 app.options("*", cors());
 
 app.use(express.json());
