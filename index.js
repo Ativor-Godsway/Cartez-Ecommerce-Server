@@ -16,10 +16,12 @@ app.use(
       "http://localhost:5173",
       "https://cartez-ecommerce-frontend-jmkq7c15x-ativors-projects.vercel.app",
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );
+
+app.options("*", cors());
 
 app.use(express.json());
 
