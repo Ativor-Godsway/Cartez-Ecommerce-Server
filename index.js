@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 
 const allowedOrigins = [
   "http://localhost:5173", // local dev
-  "https://cartez-ecommerce-frontend.vercel.app", // production domain
+  "https://cartez-ecommerce-frontend-jmkq7c15x-ativors-projects.vercel.app/shop", // production domain
 ];
 
 // allow preview deployments dynamically (matches *.vercel.app)
