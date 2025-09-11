@@ -14,15 +14,12 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://cartez-ecommerce-frontend.vercel.app",
+      "https://cartez-ecommerce-frontend-jmkq7c15x-ativors-projects.vercel.app",
     ],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // include OPTIONS
-    allowedHeaders: ["Content-Type", "Authorization"], // important
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
-
-app.options("*", cors()); // allow preflight across all routes
 
 app.use(express.json());
 
