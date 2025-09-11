@@ -15,8 +15,9 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://cartez-ecommerce-frontend.vercel.app",
-    ], // Your React frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // include OPTIONS
+    allowedHeaders: ["Content-Type", "Authorization"], // important
     credentials: true,
   })
 );
